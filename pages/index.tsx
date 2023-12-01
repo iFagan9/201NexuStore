@@ -31,7 +31,6 @@ const [searchResults, setSearchResults] = useState<MobileApp[]>(apps); // Initia
       </div>
       <div className="h-screen bg-slate-900 flex items-center justify-center flex-col">
         <h1 className="font-bold text-9xl text-center text-white">NexuStore</h1>
-        <h1 className="font-bold text-3xl text-center text-white">Slogan goes here</h1>
       </div>
       <div className="bg-slate-300">
         <div className="w-full float-root">
