@@ -31,6 +31,9 @@ export const Navbar = () => {
                 <a href="/signup" className="lg:inline-flex lg:w-auto w-full px-2 py-1 rounded text-white font-bold items-center justify-center hover:bg-slate-400 hover:text-white">
                         Sign Up / Login
                 </a>
+                <a href="/profile" className="lg:inline-flex lg:w-auto w-full px-2 py-1 rounded text-white font-bold items-center justify-center hover:bg-slate-400 hover:text-white">
+                        Profile
+                </a>
                 <a href="/help" className="lg:inline-flex lg:w-auto w-full px-2 py-1 rounded text-white font-bold items-center justify-center hover:bg-slate-400 hover:text-white">
                         Help
                 </a>

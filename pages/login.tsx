@@ -50,26 +50,28 @@ const LoginPage = () => {
 			<div className="login-page">
 				<h1>Login</h1>
 				<form onSubmit={handleLogin}>
-					<div>
-						<label>Username:</label>
-						<input
-							type="text"
-							value={username}
-							onChange={(e) => setUsername(e.target.value)}
-							required
-						/>
-					</div>
-					<div>
-						<label>Password:</label>
-						<input
-							type="password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							required
-						/>
-					</div>
-					<button type="submit">Login</button>
-				</form>
+    		<div>
+        	<label htmlFor="username">Username:</label>
+        	<input
+            	id="username"
+            	type="text"
+            	value={username}
+            	onChange={(e) => setUsername(e.target.value)}
+            	required
+        	/>
+    	</div>
+    	<div>
+        	<label htmlFor="password">Password:</label>
+        	<input
+            	id="password"
+            	type="password"
+            	value={password}
+            	onChange={(e) => setPassword(e.target.value)}
+            	required
+        	/>
+    	</div>
+    <button type="submit">Login</button>
+</form>
 				<p>New? Create an account! <Link href="/signup">Sign Up</Link></p>
 			</div>
 			<style jsx>{`
