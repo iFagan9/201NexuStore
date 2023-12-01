@@ -26,15 +26,6 @@ const LoginPage = () => {
 			const data = await response.json();
 
 			if (data.success) {
-				document.cookie = "userName = " +username;
-				const accessL = await fetch('/api/getAccessLevel', {
-					method: 'POST',
-					headers: {
-						'Content-Type' : 'application/json',
-					},
-					body: JSON.stringify({ username }),
-				});
-				document.cookie = "accessLevel = " + accessL;
 				router.push('/profile');
 			} else {
 				console.error(data.error);

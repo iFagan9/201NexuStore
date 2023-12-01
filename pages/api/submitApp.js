@@ -5,10 +5,10 @@ export default async function handler(req, res) {
         return res.status(405).end();
     }
 
-    const {name, developer, image, rating, description, comments, platforms} = req.body;
+    const {name, developer, image, rating, description, comments, platforms, popularity} = req.body;
     const client = await clientPromise;
     const db = client.db('NexuStore');
     
-    await db.collection('Submissions').insertOne({name, developer, image, rating, description, comments, platforms});
+    await db.collection('Submissions').insertOne({name, developer, image, rating, description, comments, platforms, popularity});
     res.status(201).json({message: 'App Submitted Successfully'});
 }
