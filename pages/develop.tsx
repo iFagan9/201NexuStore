@@ -11,6 +11,7 @@ const developPage = () => {
     const [error, setError] = useState('');
     const router = useRouter();
     const rating = 0;
+    const popularity = 0;
     const comments: string[] = [];
 
     const handleDeveloper = async (event) => {
@@ -19,7 +20,7 @@ const developPage = () => {
             const response = await fetch('/api/submitApp', {
                 method:'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({name, developer, image, rating, description, comments, platforms})
+                body: JSON.stringify({name, developer, image, rating, description, comments, platforms, popularity})
             });
 
             if(response.ok) {

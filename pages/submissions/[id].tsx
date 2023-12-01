@@ -19,6 +19,7 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
     const description = app.description;
     const platforms = app.platforms;
     const comments = app.comments;
+    const popularity = app.popularity;
     const [error, setError] = useState('');
     const router = useRouter();
 
@@ -28,14 +29,14 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
             const response = await fetch('/api/acceptrejectapp', {
                 method:'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({name, developer, image, rating, description, comments, platforms})
+                body: JSON.stringify({name, developer, image, rating, description, comments, platforms, popularity})
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
                 alert("Failed to Add app to database")
             } else {
-                alert("Added app to database");
+                alert("Added app");
             }
         } catch (error) {
             console.error('submission failed', error);
@@ -53,7 +54,7 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
                 const errorData = await response.json();
                 alert("Failed to remove app from database");
             } else {
-                alert("removed app from database");
+                //alert("removed app");
                 router.push('/submissions');
             }
         } catch (error) {
@@ -79,7 +80,7 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
                 //console.log(name);
                 alert("Failed to remove app from database")
             } else {
-                alert("romoved app from database");
+                alert("removed app");
                 router.push('/submissions');
             }
         } catch (error) {
