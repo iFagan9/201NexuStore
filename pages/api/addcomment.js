@@ -4,14 +4,36 @@ import { ObjectId } from "mongodb";
 export default async function handler(req, res) {
     if (req.method === 'POST') {
 
-        const {newComment} = req.body;
+        const {newComment, id} = req.body;
         const client = await clientPromise;
         const db = client.db('NexuStore');
+        const {ObjectId} = require('mongodb');
         
-        await db.collection('Apps').updateOne(
-            { _id: new ObjectId(app._id) },
-            { $set: { comments: newComment } }
+        const result = await db.collection('Apps').updateOne(
+            { _id: ObjectId(id) },
+            { $push: { comments: newComment } }
         );
-        res.status(201).json({message: 'App Acceptance Successfully'});
+
+        if (!result.value) {
+            return res.status(404).json({ message: 'Document not found'});
+        }
+
+        res.status(201).json({message: 'Added Comment Successfully'});
+    } else if (req.method === 'DELETE') {
+        const {comment, id} = req.body;
+        const client = await clientPromise;
+        const db = client.db('NexuStore');
+        const {ObjectId} = require('mongodb');
+
+        const result = await db.collection('Apps').updateOne(
+            {_id: ObjectId(id)},
+            {$pull: {comments: comment}},
+        );
+
+        if (!result.value) {
+            return res.status(404).json({ message: 'Document not found'});
+        }
+
+        res.status(201).json({message: 'Removed Comment Successfully'});
     }
 }
