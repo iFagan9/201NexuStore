@@ -20,16 +20,17 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 		  handleComment();
 		}
 	  };
-	  const handleDeleteComment = async (index: number) => {
+
+	  const handleDeleteComment = async (removeComment: string) => {
 		//If user is a moderator
 		try {
-			//const client = await clientPromise;
-    		//const db = client.db("NexuStore");
-			//const updatedComments = app.comments.filter((_, i) => i !== index);
-    		//await db.collection("Apps").updateOne(
-      			//{ _id: new ObjectId(app._id) },
-      			//{ $set: { comments: updatedComments } }
-   			// );
+			const id = app._id;
+
+			const response = await fetch('/api/addcomment', {
+				method: 'DELETE',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ removeComment, id }),
+			  });
 			
 		  router.reload();
 		} catch (error) {
@@ -45,13 +46,14 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 	
 		// Add the new comment to the list
 		const updatedComments = [...app.comments, newComment];
+		const id = app._id;
 	
 		// Update the comment list in your database (if needed)
 		try {
 			const response = await fetch('/api/addcomment', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ updatedComments }),
+				body: JSON.stringify({ newComment, id }),
 			  });
 
 		} catch (error) {
@@ -97,7 +99,7 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
      		 <div key={index} className="mb-2">
        		 {comment}
         	<button
-        	  onClick={() => handleDeleteComment(index)}
+        	  onClick={() => handleDeleteComment(comment)}
          	 className="ml-2 text-red-500"
         	>
          	 Delete
