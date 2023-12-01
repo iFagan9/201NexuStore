@@ -1,0 +1,26 @@
+                                                                NexuStore User Manual
+                                                            To Run NexuStore on your machine
+
+
+Use the following command to install everything necessary to run it:
+npm i testing-library/jest-dom@6.1.4 testing-library/react@14.1.0 types/jest@29.5.8 types/node@18.7.5 types/react@16.9.17 autoprefixer@10.4.16 dotenv@16.3.1 jest-environment-jsdom@29.7.0 jest@29.7.0 mongodb@4.17.1 mongoose@8.0.2 next-router-mock@0.9.10 next@14.0.3 postcss@8.4.31 react-dom@18.2.0 react@18.2.0 tailwindcss@3.3.3 text-encoding@0.7.0 ts-jest@29.1.1 typescript@4.6.3
+
+Use command npm run dev to run the application
+
+
+For All Users
+To Sign up or Log In press the “Sign Up/Login” button on the top of the screen. If you do not have an account, you can enter a username and password and press the “Sign Up” button to create an account. If you already have an account, you can press the blue “Login” button below the sign up, to get to the login page. From there you can enter your username and password, and press the blue “Login” button to login to your account.
+
+To search for applications, you can on any page type in a search term to the search bar at the top right of the page. Then you can press either the enter key or blue “Search” button to enter the search term. You will then be brought to the “Apps” page with only eligible applications appearing. 
+
+To browse applications press the “Apps” button on the top of any page. From the apps page you can search as demonstrated above, or sort the apps. To sort the apps, press on the “Sort by” drop down menu, and select one of the following filters: “Rating”, “Alphabetically”, and “Popularity”. You can then select one of the applications by pressing on the underlined title of the application.
+
+When you select an application you can add a comment to the comment section of the application. To do so, scroll down to the bottom of the comment section and the “Add comment” text box. Enter your comment into the box, and either press the enter key or the blue “Submit” button to the right of the text box. 
+
+To submit a request for a new application to be added, press the “Develop” button on the top of the screen from any page. You will then be brought to the develop page, where you can enter a name, developer, description, image, link, and select the platform for the application. Make sure all fields are filled out and then press the green “Submit” button to complete the application.
+
+
+For Moderators
+Moderators have the ability to delete comments posted by other users. To do so, you navigate to any application, as explained in the “For All Users” section of the manual. Then next to each comment you can press the red “Delete” button to delete any comment.
+
+For Administrators
