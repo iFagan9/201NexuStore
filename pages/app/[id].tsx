@@ -23,7 +23,13 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 	  const handleDeleteComment = async (index: number) => {
 		//If user is a moderator
 		try {
-
+			//const client = await clientPromise;
+    		//const db = client.db("NexuStore");
+			//const updatedComments = app.comments.filter((_, i) => i !== index);
+    		//await db.collection("Apps").updateOne(
+      			//{ _id: new ObjectId(app._id) },
+      			//{ $set: { comments: updatedComments } }
+   			// );
 			
 		  router.reload();
 		} catch (error) {
@@ -41,7 +47,20 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 		const updatedComments = [...app.comments, newComment];
 	
 		// Update the comment list in your database (if needed)
-		
+		try {
+			//const client = await clientPromise;
+			//const db = client.db('NexuStore');
+	  
+			// Add the new comment to the list in the database
+			//await db.collection('Apps').updateOne(
+			  //{ _id: new ObjectId(app._id) },
+			  //{ $push: { comments: newComment } }
+			//);
+
+		} catch (error) {
+			console.error("Error adding comment", error);
+		}
+
 		// Reload the page to reflect the changes
 		router.reload();
 	  };
