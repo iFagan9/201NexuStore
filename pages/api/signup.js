@@ -19,6 +19,4 @@ export default async function handler(req, res) {
 
   await db.collection('Users').insertOne({ username, password });
   res.status(201).json({ message: 'User created successfully' });
-  document.cookie = "userName = " + username;
-  document.cookie = "accessLevel = 0";
 }
