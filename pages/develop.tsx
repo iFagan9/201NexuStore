@@ -3,8 +3,8 @@ import { Navbar } from "../components/Navbar"
 import { useRouter } from "next/router";
 
 const developPage = () => {
-    const [appName, setAppName] = useState('');
-    const [developerName, setDeveloperName] = useState('');
+    const [name, setAppName] = useState('');
+    const [developer, setDeveloperName] = useState('');
     const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
     const [platforms, setPlatforms] = useState('');
@@ -22,7 +22,7 @@ const developPage = () => {
             const response = await fetch('/api/submitApp', {
                 method:'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({appName, developerName, image, rating, description, comments, platforms})
+                body: JSON.stringify({name, developer, image, rating, description, comments, platforms})
             });
 
             if(response.ok) {
@@ -49,7 +49,7 @@ const developPage = () => {
                     <label className="">Name: </label>
                     <input
                         type="text"
-                        value={appName}
+                        value={name}
                         onChange={(e) => setAppName(e.target.value)}
                         required
                         className="drop-shadow-lg rounded-lg"
@@ -59,7 +59,7 @@ const developPage = () => {
                     <label>Developer: </label>
                     <input
                         type="text"
-                        value={developerName}
+                        value={developer}
                         onChange={(e) => setDeveloperName(e.target.value)}
                         required
                         className="drop-shadow-lg rounded-lg"
