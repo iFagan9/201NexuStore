@@ -10,10 +10,7 @@ const developPage = () => {
     const [platforms, setPlatforms] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
-    const reviews = 0;
-    const ratingTotal = 0;
     const rating = 0;
-    const popularity = 0;
     const comments: string[] = [];
 
     const handleDeveloper = async (event) => {

@@ -53,7 +53,8 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
                 const errorData = await response.json();
                 alert("Failed to remove app from database");
             } else {
-                alert("romoved app from database");
+                alert("removed app from database");
+                router.push('/submissions');
             }
         } catch (error) {
             console.error('submission failed', error);
@@ -67,14 +68,19 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
             const response = await fetch('/api/acceptrejectapp', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({_id}),
+                body: JSON.stringify({id}),
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
+                setError(errorData.message);
+                console.log(errorData.message);
+                //console.log(id);
+                //console.log(name);
                 alert("Failed to remove app from database")
             } else {
                 alert("romoved app from database");
+                router.push('/submissions');
             }
         } catch (error) {
             console.error('submission failed', error);
@@ -106,9 +112,9 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
 				<p style={{ fontSize: '30px' }}>About this app:</p>
 				<p style={{ fontSize: '20px' }}>{app.description}</p>
 			</div>
-            <div>
-                <button onClick={handleAccept}>Accept</button>
-                <button onClick={handleReject}>Deny</button>
+            <div className='mt-5'>
+                <button onClick={handleAccept} className='bg-green-500 px-4 text-center justify-center items-center ml-20'>Accept</button>
+                <button onClick={handleReject} className='bg-red-500 px-4 text-center justify-center items-center ml-5'>Deny</button>
             </div>
 		</>
 	);
