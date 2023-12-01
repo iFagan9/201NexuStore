@@ -41,6 +41,7 @@ describe('Navbar for navigation', () => {
     });
 
     it('Should contain a link to the Profile page', () => {
+        // Test code here
         const container = render(<Navbar />);
         const profilePage = "Profile";
 

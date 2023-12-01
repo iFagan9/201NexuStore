@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import SignUpPage from '../../pages/signup'; // Adjust the import path
+import LoginPage from '../../pages/login'; // Adjust the import path
 import { useRouter } from 'next/router';
 
 // Mock the useRouter hook
@@ -9,7 +9,7 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }));
 
-describe('SignUpPage Component', () => {
+describe('LoginPage Component', () => {
   beforeEach(() => {
     // Provide the mock implementation for useRouter
     useRouter.mockImplementation(() => ({
@@ -18,28 +18,18 @@ describe('SignUpPage Component', () => {
     }));
   });
 
-  test('renders the signup form with all fields', () => {
-    render(<SignUpPage />);
+  test('renders the login form with all fields', () => {
+    render(<LoginPage />);
     expect(screen.getByLabelText(/Username:/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Password:/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Sign Up/i })).toBeInTheDocument();
-  });
-
-
-describe('SignUp Component', () => {
-  test('renders the signup form with all fields', () => {
-    render(<SignUpPage />);
-    expect(screen.getByLabelText(/Username:/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Password:/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Sign Up/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Login/i })).toBeInTheDocument();
   });
 
   test('allows the user to enter username and password', () => {
-    render(<SignUpPage />);
+    render(<LoginPage />);
     fireEvent.change(screen.getByLabelText(/Username:/i), { target: { value: 'testuser' } });
     fireEvent.change(screen.getByLabelText(/Password:/i), { target: { value: 'testpass' } });
     expect(screen.getByLabelText(/Username:/i)).toHaveValue('testuser');
     expect(screen.getByLabelText(/Password:/i)).toHaveValue('testpass');
   });
-});
 });
