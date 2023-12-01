@@ -1,8 +1,8 @@
 //Login page
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import clientPromise from '../lib/mongodb';
 import { Navbar } from '../components/Navbar';
+import Link from 'next/link';
 
 
 const LoginPage = () => {
@@ -26,7 +26,7 @@ const LoginPage = () => {
 			const data = await response.json();
 
 			if (data.success) {
-				router.push('/Profile');
+				router.push('/profile');
 			} else {
 				console.error(data.error);
 			}
@@ -61,6 +61,7 @@ const LoginPage = () => {
 					</div>
 					<button type="submit">Login</button>
 				</form>
+				<p>New? Create an account! <Link href="/signup">Sign Up</Link></p>
 			</div>
 			<style jsx>{`
         .login-page {
