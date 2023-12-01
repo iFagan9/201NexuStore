@@ -1,3 +1,4 @@
+                                                                
                                                                 NexuStore User Manual
                                                             To Run NexuStore on your machine
 
