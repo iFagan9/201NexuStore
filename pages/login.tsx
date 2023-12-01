@@ -26,7 +26,7 @@ const LoginPage = () => {
 			const data = await response.json();
 
 			if (data.success) {
-				router.push('/profile');
+				router.push('/');
 			} else {
 				console.error(data.error);
 			}
