@@ -9,34 +9,38 @@ const LoginPage = () => {
 
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	const [error, setError] = useState('');
 	const router = useRouter();
 
-	/**const handleLogin = async () => {
-		try {
-			const client = await clientPromise;
-			const db = client.db('NexuStore');
+	const handleLogin = async (e: React.FormEvent) => {
+		e.preventDefault();
 
-			//find user
-			const user = await db.collection('Users').findOne({ username });
-		    
-			if (user && user.password === password) {
-				router.push('/home');
+		try {
+			const response = await fetch('/api/login', {
+				method: 'POST',
+				headers: {
+					'Content-Type' : 'application/json',
+				},
+				body: JSON.stringify({ username, password }),
+			});
+
+			const data = await response.json();
+
+			if (data.success) {
+				router.push('/Profile');
 			} else {
-				setError('Invalid username or password');
+				console.error(data.error);
 			}
 		} catch (error) {
 			console.error('Login error:', error);
-			setError('An unexpected error occurred');
 		}
-	};*/
+	};
 
 	return (
 		<>
 			<Navbar />
 			<div className="login-page">
 				<h1>Login</h1>
-				<form>
+				<form onSubmit={handleLogin}>
 					<div>
 						<label>Username:</label>
 						<input

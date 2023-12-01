@@ -4,7 +4,7 @@ import { MobileApp } from "../../components/MobileApp";
 import SmallApp from "../../components/SmallApp"
 import { Navbar } from '../../components/Navbar';
 import SearchBar from '../../components/SearchBar';
-import MApp from '../../components/MobileApp';
+import SubApp from '../../components/SubmissionApp';
 import { useRouter } from 'next/router';
 
 export interface AppsProps {
@@ -23,7 +23,7 @@ const submissionPage: React.FC<AppsProps> = ({apps}) => {
       {apps.map((app) => {
         return(
           <div key={app._id}>
-            <MApp app = {app}/>
+            <SubApp app = {app}/>
           </div>
         )
       })}
