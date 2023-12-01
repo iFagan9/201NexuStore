@@ -48,14 +48,11 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 	
 		// Update the comment list in your database (if needed)
 		try {
-			//const client = await clientPromise;
-			//const db = client.db('NexuStore');
-	  
-			// Add the new comment to the list in the database
-			//await db.collection('Apps').updateOne(
-			  //{ _id: new ObjectId(app._id) },
-			  //{ $push: { comments: newComment } }
-			//);
+			const response = await fetch('/api/addcomment', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ updatedComments }),
+			  });
 
 		} catch (error) {
 			console.error("Error adding comment", error);
