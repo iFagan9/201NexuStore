@@ -20,6 +20,8 @@ const SignUpPage = () => {
       });
 
       if (response.ok) {
+        document.cookie = "userName = " + username;
+        document.cookie = "accessLevel = 0";
         router.push('/login');
       } else {
         const errorData = await response.json();
