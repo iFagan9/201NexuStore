@@ -16,8 +16,7 @@ export default async function handler(req, res) {
     return res.status(409).json({ message: 'User already exists' });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
 
-  await db.collection('Users').insertOne({ username, password: hashedPassword });
+  await db.collection('Users').insertOne({ username, password });
   res.status(201).json({ message: 'User created successfully' });
 }
