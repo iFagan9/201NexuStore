@@ -37,30 +37,31 @@ const SignUpPage = () => {
       <div className="signup-page">
         <h1>Sign Up</h1>
         <form onSubmit={handleSignUp}>
-          <div>
-            <label>Username:</label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label>Password:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          id="username"
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        </div>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <button type="submit">Sign Up</button>
         </form>
         <p>Already have an account? <Link href="/login">Login</Link></p>
       </div>
-      {/* Include your styling here */}
       <style jsx>{`
         .signup-page {
           max-width: 400px;
