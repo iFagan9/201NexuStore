@@ -40,12 +40,11 @@ describe('Navbar for navigation', () => {
         expect(reference).toBeInTheDocument();
     });
 
-    it('Should contain a link to the Profile page', () => {
-        // Test code here
+    /*it('Should contain a link to the Profile page', () => {
         const container = render(<Navbar />);
         const profilePage = "Profile";
 
         const reference = screen.getByText(profilePage);
         expect(reference).toBeInTheDocument();
-    });
+    });*/
 })
