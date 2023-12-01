@@ -34,18 +34,22 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 
 	  const handleDeleteComment = async (comment: string) => {
 		//If user is a moderator
-		try {
-			const id = app._id;
-
-			const response = await fetch('/api/addcomment', {
-				method: 'DELETE',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ comment, id }),
-			  });
-			
-		  router.reload();
-		} catch (error) {
-		  console.error("Error deleting comment from the database:", error);
+		if (Number(getCookie("accessLevel")) <= 0) {
+				console.error("You do not have access to deleting comments");
+		} else {
+			try {
+				const id = app._id;
+	
+				const response = await fetch('/api/addcomment', {
+					method: 'DELETE',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ comment, id }),
+				  });
+				
+			  router.reload();
+			} catch (error) {
+			  console.error("Error deleting comment from the database:", error);
+			}
 		}
 	  };
 
@@ -61,10 +65,11 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 	
 		// Update the comment list in your database (if needed)
 		try {
+			const newerComment = getCookie("userName") + ": " + newComment;
 			const response = await fetch('/api/addcomment', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ newComment, id }),
+				body: JSON.stringify({ newerComment, id }),
 			  });
 
 		} catch (error) {
@@ -72,7 +77,7 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 		}
 
 		// Reload the page to reflect the changes
-		router.reload();
+		//router.reload();
 	  };
 
 	if (router.isFallback) {
