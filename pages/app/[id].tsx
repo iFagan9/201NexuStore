@@ -21,7 +21,7 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 		}
 	  };
 
-	  const handleDeleteComment = async (removeComment: string) => {
+	  const handleDeleteComment = async (comment: string) => {
 		//If user is a moderator
 		try {
 			const id = app._id;
@@ -29,7 +29,7 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 			const response = await fetch('/api/addcomment', {
 				method: 'DELETE',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ removeComment, id }),
+				body: JSON.stringify({ comment, id }),
 			  });
 			
 		  router.reload();
