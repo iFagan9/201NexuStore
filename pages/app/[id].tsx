@@ -77,7 +77,7 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 		}
 
 		// Reload the page to reflect the changes
-		//router.reload();
+		router.reload();
 	  };
 
 	if (router.isFallback) {

@@ -3,14 +3,14 @@ import { ObjectId } from "mongodb";
 //adds comment to list of comments or changes to comment to the message "This comment has been deleted"
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const {newComment, id} = req.body;
+        const {newerComment, id} = req.body;
         const client = await clientPromise;
         const db = client.db('NexuStore');
         const {ObjectId} = require('mongodb');
         
         const result = await db.collection('Apps').updateOne(
             { _id: ObjectId(id) },
-            { $push: { comments: newComment } }
+            { $push: { comments: newerComment } }
         );
 
         if (!result.value) {
