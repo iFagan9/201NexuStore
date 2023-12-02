@@ -19,7 +19,7 @@ export const Navbar = () => {
     }
 
     const checkAccessLevel = () => {
-        const accessLevel = Number(getCookie("accesslevel"));
+        const accessLevel = Number(getCookie("accessLevel"));
         if (accessLevel === 2) {
             setShowSub(true);
         } else {
