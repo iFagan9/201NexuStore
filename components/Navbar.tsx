@@ -7,6 +7,7 @@ export const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [showSub, setShowSub] = useState(false);
 
+    //gets the cookie value for a given field
     function getCookie(cookieName) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
@@ -17,7 +18,7 @@ export const Navbar = () => {
         }
         return null;
     }
-
+    //checks if user is able to access submissions page
     const checkAccessLevel = () => {
         const accessLevel = Number(getCookie("accessLevel"));
         if (accessLevel === 2) {
@@ -26,7 +27,6 @@ export const Navbar = () => {
             setShowSub(false);
         }
     }
-
     useEffect(() => {
         checkAccessLevel();
         console.log("used effect");

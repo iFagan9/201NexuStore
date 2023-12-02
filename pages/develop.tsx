@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar"
 import { useRouter } from "next/router";
 
 const developPage = () => {
+    //sets attributes for new application
     const [name, setAppName] = useState('');
     const [developer, setDeveloperName] = useState('');
     const [image, setImage] = useState('');
@@ -14,6 +15,7 @@ const developPage = () => {
     const popularity = 0;
     const comments: string[] = [];
 
+    //tests if submission is good and submits
     const handleDeveloper = async (event) => {
         event.preventDefault();
         try{
@@ -36,7 +38,7 @@ const developPage = () => {
             setError('An Unexpected Error Occured');
         }
     };
-
+    //graphial representation of page
     return (
     <>
         <Navbar />

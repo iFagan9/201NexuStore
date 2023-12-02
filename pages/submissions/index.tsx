@@ -14,7 +14,7 @@ export interface AppsProps {
 
 const submissionPage: React.FC<AppsProps> = ({apps}) => {
   
-
+//graphical representation of page
   return (
     <>
       <Navbar />
