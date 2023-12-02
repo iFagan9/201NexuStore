@@ -1,10 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import SearchBar from './SearchBar';
 
 export const Navbar = () => {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState('');
+    const [showSub, setShowSub] = useState(false);
+
+    function getCookie(cookieName) {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.startsWith(`${cookieName}=`)) {
+                return cookie.substring(cookieName.length + 1);
+            }
+        }
+        return null;
+    }
+
+    const checkAccessLevel = () => {
+        const accessLevel = Number(getCookie("accesslevel"));
+        if (accessLevel === 2) {
+            setShowSub(true);
+        } else {
+            setShowSub(false);
+        }
+    }
+
+    useEffect(() => {
+        checkAccessLevel();
+        console.log("used effect");
+    }, []);
 
 
     //html code for the navbar
@@ -25,7 +51,7 @@ export const Navbar = () => {
                 <a href="/develop" className="lg:inline-flex lg:w-auto w-full px-2 py-1 rounded text-white font-bold items-center justify-center hover:bg-slate-400 hover:text-white">
                     Develop
                 </a>
-                <a href="/submissions" className="lg:inline-flex lg:w-auto w-full px-2 py-1 rounded text-white font-bold items-center justify-center hover:bg-slate-400 hover:text-white">
+                <a href="/submissions" className="lg:inline-flex lg:w-auto w-full px-2 py-1 rounded text-white font-bold items-center justify-center hover:bg-slate-400 hover:text-white" style={{ display: showSub ? 'block' : 'none' }}>
                     Submissions
                 </a>
                 <a href="/signup" className="lg:inline-flex lg:w-auto w-full px-2 py-1 rounded text-white font-bold items-center justify-center hover:bg-slate-400 hover:text-white">
