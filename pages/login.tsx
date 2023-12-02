@@ -27,14 +27,31 @@ const LoginPage = () => {
 
 			if (data.success) {
 				document.cookie = "userName = " + username;
-				const accessL = await fetch('/api/getAccessLevel', {
+				const response2 = await fetch('/api/isMod', {
 					method: 'POST',
 					headers: {
-						'Content-Type' : 'application/json',
+					  'Content-Type': 'application/json',
 					},
 					body: JSON.stringify({ username }),
-				});
-				document.cookie = "accessLevel = " + accessL;
+				  });
+				  const data2 = await response2.json();
+				  if (data2.success) {
+					document.cookie = "accessLevel = 1";
+				  } else {
+					const response3 = await fetch('/api/isAdmin', {
+						method: 'POST',
+						headers: {
+						  'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ username }),
+					  });
+					  const data3 = await response3.json();
+					  if (data3.success) {
+						document.cookie = "accessLevel = 2";
+					  } else {
+						document.cookie = "accessLevel = 0";
+					  }
+				  }
 				router.push('/');
 			} else {
 				console.error(data.error);
