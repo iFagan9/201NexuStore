@@ -4,7 +4,7 @@ import MobileApp from '/components/MobileApp';
 export interface MAppProps {
     app: MobileApp;
 }
-
+//graphical representation of a user-submitted app
 const SubApp: React.FC<MAppProps> = ({app}) => {
     return (
         <div className="overflow-hidden shadow-lg rounded-lg">

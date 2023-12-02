@@ -35,7 +35,16 @@
 
 
     For Moderators
-    Moderators have the ability to delete comments posted by other users. To do so, you navigate to any application, as explained in the 
-    “For All Users” section of the manual. Then next to each comment you can press the red “Delete” button to delete any comment.
+    Moderators have the ability to delete comments posted by other users. To do so, you navigate to any application, as explained 
+    in the “For All Users” section of the manual. Then next to each comment you can press the red “Delete” button to delete any comment.
+    You can log into a moderator account with 
+    Username: Mod Account
+    Password: Mod
+
 
     For Administrators
+    Administrators have the ability to approve or deny new submissions to be added to the NexuStore. They can do so, by pressing the “Submissions” button at the top of the screen and then selecting an app. They can then press the green “Accept” button to accept the app or the red “Deny” button to deny the application.  
+    You can log into an administrator account with
+    Username: Admin Account
+    Password: Admin
+

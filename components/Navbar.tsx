@@ -7,7 +7,7 @@ export const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
 
-
+    //html code for the navbar
     return (
         <>
         <nav className="flex items-center flex-wrap bg-slate-700 p-3 w-screen opacity-90">

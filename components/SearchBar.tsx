@@ -9,18 +9,19 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const router = useRouter();
 
+  //searches
   const handleSearch = () => {
     router.push(`/apps?query=${searchQuery}`);
   };
 
 
-  // This function could be used to handle key press events if you wish
+  // Makes pressing enter key submit search
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
       handleSearch();
     }
   };
-
+  //graphical representation of search bar
   return (
     <div className="flex items-center">
       <input

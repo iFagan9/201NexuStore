@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from 'react';
 
 export interface MobileApp {
+    //attributes for mobile apps
     _id: string;
     name: string;
     developer: string;
@@ -19,7 +20,7 @@ export interface MobileApp {
 export interface MAppProps {
     app: MobileApp;
 }
-
+//graphical representation of a mobile app
 const MApp: React.FC<MAppProps> = ({app}) => {
     return (
         <div className="overflow-hidden shadow-lg rounded-lg">
@@ -40,10 +41,3 @@ const MApp: React.FC<MAppProps> = ({app}) => {
 
 export default MApp;
 
-/*
-<ul>
-    {app.comments.map((comment, index) => (
-        <li key={index}>{comment}</li>
-    ))}
-</ul>
-*/

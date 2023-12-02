@@ -1,7 +1,7 @@
 import { MobileApp } from "./MobileApp";
 import { MAppProps } from "./MobileApp";
 import Link from "next/link";
-
+    //small graphical representation of app
 const SmallApp: React.FC<MAppProps> = ({app}) => {
     return (
         <div className="overflow-hidden shadow-lg rounded-lg">
