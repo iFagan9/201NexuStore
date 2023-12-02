@@ -1,6 +1,6 @@
 // pages/api/login.js
 import { MongoClient } from "mongodb";
-//tests if the login is valid
+//tests if the user is an admin
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).end();
