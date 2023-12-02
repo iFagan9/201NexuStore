@@ -1,9 +1,8 @@
 import clientPromise from "../../lib/mongodb";
 import { ObjectId } from "mongodb";
-
+//adds comment to list of comments or changes to comment to the message "This comment has been deleted"
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-
         const {newComment, id} = req.body;
         const client = await clientPromise;
         const db = client.db('NexuStore');

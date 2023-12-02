@@ -1,6 +1,6 @@
 import clientPromise from "../../lib/mongodb";
 import { ObjectId } from "mongodb";
-
+//adds application to database if accepted or deletes it if it is denied
 export default async function handler(req, res) {
     if (req.method === 'POST') {
 

@@ -1,7 +1,7 @@
 // pages/api/signup.js
 import bcrypt from 'bcryptjs';
 import clientPromise from '../../lib/mongodb';
-
+//checks if username is taken and adds the new user to database
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).end();
