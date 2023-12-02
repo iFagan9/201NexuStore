@@ -58,28 +58,23 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
             }
         }
 
+        try {
+            const response = await fetch('/api/acceptrejectapp', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id }),
+            });
 
-        if (Number(getCookie("accessLevel")) != 2) {
-            console.error("You do not have access to handle submissions");
-        } else {
-            try {
-                const response = await fetch('/api/acceptrejectapp', {
-                    method: 'DELETE',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id }),
-                });
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    alert("Failed to remove app from database");
-                } else {
-                    //alert("removed app");
-                    router.push('/submissions');
-                }
-            } catch (error) {
-                console.error('submission failed', error);
-                setError('An Unexpected Error Occured');
+            if (!response.ok) {
+                const errorData = await response.json();
+                alert("Failed to remove app from database");
+            } else {
+                //alert("removed app");
+                router.push('/submissions');
             }
+        } catch (error) {
+            console.error('submission failed', error);
+            setError('An Unexpected Error Occured');
         }
     };
 
