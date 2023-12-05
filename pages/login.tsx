@@ -6,11 +6,11 @@ import Link from 'next/link';
 
 
 const LoginPage = () => {
-
+	//creates artributes
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const router = useRouter();
-
+	//handles logging and checks if it is successful
 	const handleLogin = async (e: React.FormEvent) => {
 		e.preventDefault();
 

@@ -12,7 +12,7 @@ export interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({apps}) => {
 const [searchResults, setSearchResults] = useState<MobileApp[]>(apps); // Initialize with apps
-
+  //sets the apps to be only the ones searched
   const handleSearch = (query: string) => {
     if (!query) {
       setSearchResults(apps);
@@ -23,7 +23,7 @@ const [searchResults, setSearchResults] = useState<MobileApp[]>(apps); // Initia
       setSearchResults(filtered);
     }
   };
-
+//graphical representaion of page
   return (
     <>
       <div className="fixed">

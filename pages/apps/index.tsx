@@ -18,9 +18,9 @@ const appsPage: React.FC<AppsProps> = ({apps}) => {
   const router = useRouter();
   const query = router.query.query as string;
 
-
+  //handles changes
   useEffect(() => {
-    // Handle search
+    //handles searches
     let updatedApps = apps;
     if (query) {
       updatedApps = updatedApps.filter((app) =>
@@ -34,7 +34,7 @@ const appsPage: React.FC<AppsProps> = ({apps}) => {
     setFilteredApps(updatedApps);
   }, [query, apps, sortMethod]);
 
-
+  //sets all searcher for apps
   const handleSearch = (query: string) => {
     if (!query) {
       setFilteredApps(apps);
@@ -45,11 +45,12 @@ const appsPage: React.FC<AppsProps> = ({apps}) => {
       setFilteredApps(filtered);
     }
   };
-
+  //sets the correct sort
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const sortValue = e.target.value;
     setSortMethod(sortValue);
   };
+  //sorts the apps according to filter
   const sortApps = (apps: MobileApp[], sortMethod: string) => {
     if (sortMethod === 'Rating') {
       return apps.slice().sort((a, b) => b.rating.valueOf() - a.rating.valueOf());
@@ -60,7 +61,7 @@ const appsPage: React.FC<AppsProps> = ({apps}) => {
     }
     return apps;
   };
-
+  //graphical representation of page
   return (
     <>
       <Navbar />

@@ -9,7 +9,7 @@ import { ObjectId } from 'mongodb';
 type Props = {
 	app: MobileApp;
 }
-
+//gets the cookie value for a given field
 function getCookie(cookieName) {
 	const cookies = document.cookie.split(';');
 	for (let i = 0; i < cookies.length; i++) {
@@ -25,13 +25,13 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 
 	const [newComment, setNewComment] = useState('');
   	const router = useRouter();
-
+	//lets enter key submit commet
 	const handleKeyPress = (event: React.KeyboardEvent) => {
 		if (event.key === 'Enter') {
 		  handleComment();
 		}
 	  };
-
+	  //lets moderators delete comments
 	  const handleDeleteComment = async (comment: string) => {
 		//If user is a moderator
 		if (Number(getCookie("accessLevel")) <= 0) {
@@ -53,7 +53,7 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 		}
 	  };
 
-
+	  //adds comments
 	  const handleComment = async () => {
 		if (!newComment.trim()) {
 		  return; // Prevent adding empty comments
@@ -83,7 +83,7 @@ function AppDetailsPage({ app }: { app: MobileApp }) {
 	if (router.isFallback) {
 		return <div>Loading...</div>;
 	}
-
+	//graphical representation of the page
 	return (
 		<>
 			<div className='fixed'>

@@ -9,7 +9,7 @@ import { ObjectId } from 'mongodb';
 type Props = {
     app: MobileApp;
 }
-
+//gets the cookie value for a given field
 function getCookie(cookieName) {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
@@ -22,6 +22,7 @@ function getCookie(cookieName) {
 }
 
 function SubAppDetailsPage({ app }: { app: MobileApp }) {
+    //attributes of apps
     const id = app._id;
     const name = app.name;
     const developer = app.developer;
@@ -34,6 +35,7 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
     const [error, setError] = useState('');
     const router = useRouter();
 
+    //adds the app to correct database
     const handleAccept = async (event) => {
         event.preventDefault();
         if (Number(getCookie("accessLevel")) != 2) {
@@ -77,7 +79,7 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
             setError('An Unexpected Error Occured');
         }
     };
-
+    //removes the app from database
     const handleReject = async (event) => {
         if (Number(getCookie("accessLevel")) != 2) {
             console.error("You do not have access to handle submissions");
@@ -106,7 +108,7 @@ function SubAppDetailsPage({ app }: { app: MobileApp }) {
             }
         }
     };
-
+    //graphical representation of page
     return (
         <>
             <div className='fixed'>

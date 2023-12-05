@@ -5,11 +5,12 @@ import { Navbar } from '../components/Navbar';
 import Link from 'next/link';
 
 const SignUpPage = () => {
+  //attributes of signing up
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-
+  // checks if signing up is successful
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
@@ -32,7 +33,7 @@ const SignUpPage = () => {
       setError('An unexpected error occurred');
     }
   };
-
+  //graphical representation of page
   return (
     <>
       <Navbar />
