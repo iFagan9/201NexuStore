@@ -30,7 +30,7 @@ const MApp: React.FC<MAppProps> = ({app}) => {
                 <p className="font-bold text-xl mb-0 underline">{app.name}</p>
             </Link>
             <p className="font-bold text-m mb-2">{app.developer}</p>
-            <p className="text-gray-700 text-base">{app.description}</p>
+            <p className="text-gray-700 text-base overflow-hidden whitespace-nowrap text-ellipsis">{app.description}</p>
             <p className="font-bold text-yellow-500">{app.rating}</p>
         </div>
         </div>

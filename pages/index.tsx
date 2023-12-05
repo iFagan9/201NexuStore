@@ -38,7 +38,7 @@ const [searchResults, setSearchResults] = useState<MobileApp[]>(apps); // Initia
           <a href="apps" className="font-bold text-5xl float-right pr-2 -mt-3">&#187;</a>
         </div>
         <div className="p-10 pt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 w-full">
-        {searchResults.map((app) => { // Use searchResults here instead of apps
+        {apps.map((app) => { // Use searchResults here instead of apps
           return(
             <div key={app._id}>
               <MApp app = {app}/>
@@ -57,7 +57,7 @@ export async function getServerSideProps() {
     const client = await clientPromise;
     const db = client.db("NexuStore");
 
-    const apps = await db.collection("Apps").find({name: {$regex: /test/i }}).limit(3).sort({rating: -1}).toArray();
+    const apps = await db.collection("Apps").find().limit(3).sort({rating: -1}).toArray();
     return {
       props: {
         apps: JSON.parse(JSON.stringify(apps))

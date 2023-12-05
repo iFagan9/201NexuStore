@@ -7,7 +7,7 @@ export const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [showSub, setShowSub] = useState(false);
 
-    function getCookie(cookieName) {
+    function getCookie(cookieName: string) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
